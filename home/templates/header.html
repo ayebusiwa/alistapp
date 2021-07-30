@@ -1,0 +1,65 @@
+{% load static %}
+<!-- Header and banner combined  -->
+<div class="headermain">
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <a href="{% url 'index' %}"><img src="{{setting.logo.url}}" alt="company logo here"></a>
+            </div>
+            <div class="navbar">
+                <ul id="MenuItems">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'category' %}">Products</a></li>
+                    {% if user.id is not None %}                   
+                        <li><a href="{% url 'user' %}"><img src="{{profile.image.url}}" alt="" style="border-radius: 30px; height:50px"></a></li>
+                        <li>                           
+                           <a href="{% url 'user' %}">Welcome!
+                                {% if request.user.first_name %}
+                                    {{request.user.first_name}}
+                                {% else %}
+                                    {{request.user.username}}
+                                {% endif %}
+                           </a>
+                        </li>
+                        <li><a href="{% url 'logoutfunc' %}">Logout</a></li>
+                        <li><a href="">Change Password</a></li>
+                    {% else %}
+                        <li><a href="{% url 'accountform' %}">Account</a></li> 
+                    {% endif %}	
+                </ul>
+            </div>
+            <a href="{% url 'order:shopcart' %}"><img src="{{setting.cart_icon.url}}" alt="shop cart" width="30px" height="30px">
+                {% if itemcount > 0 %}
+                    <span class="badge red z-depth-1 mr-1">{{ itemcount }}</span>
+                {% else %}
+                    <span class="badge red z-depth-1 mr-1">0</span>
+                {% endif %}              
+            </a>
+            <img src="{{setting.menu_icon.url}}" class="menu-icon" onclick="menutoggle()">
+        </div> 
+        {% if messages %}
+            {% for message in messages  %}
+                <div  class="alert alert-{{message.tags}}" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>													
+                    {{ message }}
+                </div>									  
+            {% endfor %}								  
+        {% endif %}	  
+        <div class="row">
+            <div class="col-2">
+                <h1>Give Your Work Some <br> Class And Style!</h1>
+                <p>“You can have anything you want if you want it badly enough. You can  <br>be anything
+                     you want to be, do anything you set out to accomplish <br>
+                      if you hold to that desire with singleness of purpose.”
+                </p>
+                    <a href="{% url 'category' %}" class="buttons">Explore Now &#8594;</a>
+            </div>
+            <div class="col-2">
+                <img src="{{banner.image.url}}">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header and banner done  -->

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load humanize %}
+
+
+{% block title %} Order Completed  {% endblock title %}
+
+{% block keywords %} {{product.keywords}} {% endblock keywords %}
+
+{% block description %} {{product.description}} {% endblock description %}
+     
+<!-- Header   -->
+{% block header %} {% include "acheader.html" %} {% endblock header %}
+<!-- Header done  -->
+
+
+{% block content %}
+<!-- order completed details  -->
+<div class="account-page">
+    <div class="container">
+        <h2 class="text-center">Order Completed</h2>
+        <div class="row">
+            <div class="col-2">
+                <div class="oform-container">
+                    <h4>Dear <span style="color: #ff523b;">{{profile.user.username}} {{profile.user.last_name}}</span></h4>
+                    <h5>Your Order is Completed</h5>
+                    <p>Thank You for your patronage</p>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="{{offer.image.url}}" class="offer-img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <p>Exclusively Aavailable at Prodigious Store</p>
+                <h1>Lingerie </h1>
+                <small>
+                    Our range of women's lingerie is a must have in any underwear drawer. 
+                    So, get ready to impress while you undress with the best range of lingerie.
+                </small>
+                <a href="{% url 'category' %}" class="buttons">Buy Now &#8594;</a>
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                                                                                                                                                                                                            
+<!-- order completed details end here  -->
+{% endblock content %}
+
+<!-- footer   -->
+{% block footer %}  {% include "footer.html" %} {% endblock footer %}
+<!-- footer done  -->

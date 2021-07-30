@@ -1,0 +1,43 @@
+    {% extends 'base.html' %}
+    {% load static %}
+
+    {% load humanize %}
+
+
+    {% block title %} {{setting.title}} {% endblock title %}
+
+    {% block keywords %} {{setting.keywords}} {% endblock keywords %}
+
+    {% block description %} {{setting.description}} {% endblock description %}
+        
+
+            
+
+    <!-- Header and banner  -->
+    {% block header %} {% include "header.html" %} {% endblock header %}
+    <!-- Header and banner done  -->
+
+    <!-- Content  -->
+    {% block content %} {% include "content.html" %} {% endblock content %}                       
+    <!-- Content done  -->
+    
+    <!-- offer products  -->
+    {% block offer %}  {% include "offer.html" %} {% endblock offer %}
+    <!-- offer products done -->
+
+ 
+    <!-- Testimonials  -->
+    {% block testimonials %} {% include "testimonials.html" %} {% endblock testimonials %}
+    <!-- Testimonials done -->
+ 
+    <!-- brands   -->
+    {% block brands %}  {% include "brands.html" %} {% endblock brands %}
+    <!-- brands done  -->
+
+    <!-- footer   -->
+    {% block footer %}  {% include "footer.html" %} {% endblock footer %}
+    <!-- footer done  -->
+
+     
+
+     
